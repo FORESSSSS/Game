@@ -3,6 +3,7 @@ import java.util.Set;
 
 public class Player extends GameCharacter {
     private int level;
+    private int maxHealth;
     private int statPoints;
     private static Scanner scanner;
     private static String command;
@@ -38,6 +39,14 @@ public class Player extends GameCharacter {
     @Override
     public int attack() {
         return super.attack() + getExperience();
+    }
+
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
+    public void setMaxHealth(int maxHealth) {
+        this.maxHealth = maxHealth;
     }
 
     public void useStatPoints() {

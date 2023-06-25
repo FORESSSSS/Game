@@ -55,7 +55,8 @@ public class Battle {
             player.setLevel(player.getLevel() + 1);
             player.setStatPoints(player.getStatPoints() + player.getLevel() * 2);
             System.out.println("------------------------------");
-            System.out.printf("Вы получили %d-й уровень! \n", player.getLevel());
+            System.out.printf("Вы получили %d-й уровень!\n", player.getLevel());
+            player.setMaxHealth(player.getMaxHealth() + 20);
         }
     }
 }
