@@ -5,6 +5,7 @@ public class Seller {
     private Player player;
     private static Scanner scanner;
     private static String command;
+    private static int pointsInHealthPotion = 10;
     private static int priceHealthPotion = 10;
     private static int priceStatPointsPotion = 50;
 
@@ -18,6 +19,10 @@ public class Seller {
 
     public static int getPriceStatPointsPotion() {
         return priceStatPointsPotion;
+    }
+
+    public static int getPointsInHealthPotion() {
+        return pointsInHealthPotion;
     }
 
     private static String printMenu() {
@@ -48,18 +53,19 @@ public class Seller {
                             "Введите нужное количество -> ");
                     try {
                         int quantity = scanner.nextInt();
-                        if (player.getHealth() > player.getMaxHealth() - 10 && player.getHealth() < player.getMaxHealth() + 10) {
+                        if (player.getHealth() > player.getMaxHealth() - getPointsInHealthPotion()
+                                && player.getHealth() < player.getMaxHealth() + getPointsInHealthPotion()) {
                             player.setHealth(player.getMaxHealth());
                             player.setGold(player.getGold() - getPriceHealthPotion());
                             System.out.println(player.getName() + "\n" +
                                     "здоровье: " + player.getHealth() + " из " + player.getMaxHealth() +
                                     ", золото: " + player.getGold());
-                        } else if (player.getHealth() + (quantity * 10) >= player.getMaxHealth()) {
+                        } else if (player.getHealth() + (quantity * getPointsInHealthPotion()) >= player.getMaxHealth()) {
                             System.out.println("Слишком большое количество!\n");
                         } else {
                             if (quantity * getPriceHealthPotion() <= player.getGold()) {
                                 player.setGold(player.getGold() - quantity * getPriceHealthPotion());
-                                player.setHealth(player.getHealth() + quantity * 10);
+                                player.setHealth(player.getHealth() + quantity * getPointsInHealthPotion());
                                 System.out.println(player.getName() + "\n" +
                                         "здоровье: " + player.getHealth() + " из " + player.getMaxHealth() +
                                         ", золото: " + player.getGold());
