@@ -43,7 +43,7 @@ public class Seller {
                 case "1": {
                     System.out.println(player.getName() + "\n" +
                             "здоровье: " + player.getHealth() + " из " + player.getMaxHealth() +
-                            " золото: " + player.getGold());
+                            ", золото: " + player.getGold());
                     System.out.print("1 зелье стоит 10 золотых и увеличивает здоровье на 10\n" +
                             "Введите нужное количество -> ");
                     try {
@@ -53,7 +53,7 @@ public class Seller {
                             player.setGold(player.getGold() - getPriceHealthPotion());
                             System.out.println(player.getName() + "\n" +
                                     "здоровье: " + player.getHealth() + " из " + player.getMaxHealth() +
-                                    " золото: " + player.getGold());
+                                    ", золото: " + player.getGold());
                         } else if (player.getHealth() + (quantity * 10) >= player.getMaxHealth()) {
                             System.out.println("Слишком большое количество!\n");
                         } else {
@@ -62,7 +62,7 @@ public class Seller {
                                 player.setHealth(player.getHealth() + quantity * 10);
                                 System.out.println(player.getName() + "\n" +
                                         "здоровье: " + player.getHealth() + " из " + player.getMaxHealth() +
-                                        " золото: " + player.getGold());
+                                        ", золото: " + player.getGold());
                             } else {
                                 System.out.println("У Вас недостаточно золота");
                             }
@@ -75,7 +75,7 @@ public class Seller {
                 case "2": {
                     System.out.println(player.getName() + "\n" +
                             "очки усиления: " + player.getStatPoints() +
-                            " золото: " + player.getGold());
+                            ", золото: " + player.getGold());
                     System.out.println("1 зелье усиления стоит 50 золотых\n" +
                             "Введите нужное количество -> ");
                     try {
@@ -85,7 +85,7 @@ public class Seller {
                             player.setStatPoints(player.getStatPoints() + quantity);
                             System.out.println(player.getName() + "\n" +
                                     "очки усиления: " + player.getStatPoints() +
-                                    " золото: " + player.getGold());
+                                    ", золото: " + player.getGold());
                         } else {
                             System.out.println("У Вас недостаточно золота");
                         }
