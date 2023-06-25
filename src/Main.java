@@ -2,81 +2,78 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class Main {
-    public static Scanner sc;
-    public static String choisMenu;
-    public static Hero hero;
-    public static Character monster;
-    public static Merchant merchant; // продавец
+    public static Scanner scanner;
+    public static String command;
+    public static Player player;
+    public static GameCharacter monster;
+    public static Seller seller;
 
     public static void main(String[] args) throws InterruptedException {
-
-        // создаем героя
-        sc = new Scanner(System.in);
-        System.out.print("Привет! Введи имя героя: ");
-        String heroName = sc.nextLine();
-        hero = new Hero(heroName, 5, 100, 11, 2, 100);
-        System.out.println(hero + "\n ---------------------- \n");
+        scanner = new Scanner(System.in);
+        System.out.print("Введите имя героя: ");
+        String heroName = scanner.nextLine();
+        player = new Player(heroName, 100, 10, 5, 0, 100);
+        System.out.println(player + "\n ---------------------- \n");
         statGame();
-
     }
 
-    private static String menuMain() {
+    private static String printMenu() {
         while (true) {
-            sc = new Scanner(System.in);
-            System.out.print("Куда вы хотите пойти? " + "\n" +
+            scanner = new Scanner(System.in);
+            System.out.print("Куда Вы хотите пойти? " + "\n" +
                     "1. К торговцу" + "\n" +
                     "2. В тёмный лес" + "\n" +
                     "3. Посмотреть состояние героя" + "\n");
-            if (hero.getStatPoints() > 0) System.out.println("4. Распределить StatPoints");
-            System.out.print("Для выхода нажмите q" + "\n" + "-> ");
-            Set<String> set = Set.of("1", "2", "3","4", "q");
-            choisMenu = sc.next();
-            if (set.contains(choisMenu)) {
-                return choisMenu;
-            } else System.out.println("Вы не выбрали пункт меню. Попробуйте еще раз");
+            if (player.getStatPoints() > 0) {
+                System.out.println("4. Распределить очки усиления");
+            }
+            System.out.print("Для выхода нажмите Q" + "\n" + "-> ");
+            Set<String> set = Set.of("1", "2", "3", "4", "Q");
+            command = scanner.next();
+            if (set.contains(command)) {
+                return command;
+            } else {
+                System.out.println("Вы не выбрали пункт меню. Попробуйте еще раз");
+            }
         }
     }
 
     private static void statGame() throws InterruptedException {
         while (true) {
-            choisMenu = menuMain();
-            switch (choisMenu) {
+            command = printMenu();
+            switch (command) {
                 case "1": {
-                    merchant = new Merchant(hero);
-                    merchant.sell();
-                    //System.out.println("Торговец еще не вышел на работу");
+                    seller = new Seller(player);
+                    seller.sell();
+                    System.out.println("Торговец еще не вышел на работу");
                     break;
                 }
                 case "2": {
-                    // создаем монстра
                     if ((int) (Math.random() * 2) == 1) {
-                        monster = new Goblin("Goblin");
-                    } else monster = new Skeleton("Skeleton");
-
-                    Battle battle = new Battle(hero, monster);
+                        monster = new Goblin("Гоблин");
+                    } else monster = new Skeleton("Скелет");
+                    Battle battle = new Battle(player, monster);
                     battle.startBattle();
-                    if (hero.getHealth() == 0) {
-                        System.out.println("Вы потерпели поражение =`(");
+                    if (player.getHealth() == 0) {
+                        System.out.println("Вы потерпели поражение");
                         System.exit(1);
                     }
                     break;
                 }
                 case "3": {
-                    System.out.println(hero);
-                    break;
-
-                }case "4": {
-                    hero.useStatPoints();
+                    System.out.println(player);
                     break;
                 }
-
-                case "q": {
+                case "4": {
+                    player.useStatPoints();
+                    break;
+                }
+                case "Q": {
                     System.out.println("Вы вышли из игры.");
-                    //System.exit(1);
+                    System.exit(1);
                     return;
                 }
             }
         }
     }
-
 }
