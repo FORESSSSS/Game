@@ -12,7 +12,7 @@ public class Main {
         scanner = new Scanner(System.in);
         System.out.print("Введите имя героя: ");
         String heroName = scanner.nextLine();
-        player = new Player(heroName, 100, 20, 15, 0, 100);
+        player = new Player(heroName, 100, 20, 20, 0, 100);
         System.out.println(player + "\n ---------------------- \n");
         statGame();
     }
@@ -54,7 +54,8 @@ public class Main {
                     Battle battle = new Battle(player, monster);
                     battle.startBattle();
                     if (player.getHealth() == 0) {
-                        System.out.println("Вы потерпели поражение");
+                        System.out.println("Вы потерпели поражение!");
+                        System.out.println("ИГРА ОКОНЧЕНА");
                         System.exit(1);
                     }
                     break;

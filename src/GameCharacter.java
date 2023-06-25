@@ -75,7 +75,7 @@ public abstract class GameCharacter implements Fighter {
     @Override
     public int attack() {
         if (dexterity * 3 > (int) (Math.random() * 100)) {
-            return strength;
+            return strength + (int) (Math.random() * 10);
         } else {
             return 0;
         }
@@ -83,13 +83,6 @@ public abstract class GameCharacter implements Fighter {
 
     @Override
     public String toString() {
-        return "GameCharacter{" +
-                "name='" + name + '\'' +
-                ", health=" + health +
-                ", strength=" + strength +
-                ", dexterity=" + dexterity +
-                ", experience=" + experience +
-                ", gold=" + gold +
-                '}';
+        return "здоровье = " + health;
     }
 }

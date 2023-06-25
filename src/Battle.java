@@ -27,11 +27,11 @@ public class Battle {
     }
 
     private void round(GameCharacter player1, GameCharacter player2) {
-        int forsePlayer1 = player1.attack();
+        int strengthPlayer1 = player1.attack();
         countMoves++;
         System.out.println("---Ход " + countMoves + " ---");
-        System.out.println(player1.getName() + " атакует с силой " + forsePlayer1);
-        player2.setHealth(player2.getHealth() - forsePlayer1);
+        System.out.println(player1.getName() + " атакует с силой " + strengthPlayer1);
+        player2.setHealth(player2.getHealth() - strengthPlayer1);
         System.out.println(player2.getName() + ": здоровье " + player2.getHealth());
         try {
             Thread.sleep(1000);
@@ -40,9 +40,9 @@ public class Battle {
         }
         if (player2.getHealth() <= 0) {
             if (player1 instanceof Player) updatePlayer((Player) player1, player2);
-            System.out.println("----------------------------- \n" +
+            System.out.println("------------------------------\n" +
                     "Победил " + player1.getName());
-            System.out.println(player1 + "\n -----------------------------");
+            System.out.println(player1 + "\n------------------------------");
             return;
         }
         round(player2, player1);
@@ -54,8 +54,8 @@ public class Battle {
         if (player.getExperience() >= Math.pow(player.getLevel(), 2) * 10) {
             player.setLevel(player.getLevel() + 1);
             player.setStatPoints(player.getStatPoints() + player.getLevel() * 2);
-            System.out.println("---------------------------");
-            System.out.printf("Вы получили %n уровень \n", player.getLevel());
+            System.out.println("------------------------------");
+            System.out.printf("Вы получили %d-й уровень! \n", player.getLevel());
         }
     }
 }
