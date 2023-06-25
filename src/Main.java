@@ -53,7 +53,7 @@ public class Main {
                     } else monster = new Skeleton("Скелет");
                     Battle battle = new Battle(player, monster);
                     battle.startBattle();
-                    if (player.getHealth() == 0) {
+                    if (player.getHealth() <= 0) {
                         System.out.println("Вы потерпели поражение!");
                         System.out.println("ИГРА ОКОНЧЕНА");
                         System.exit(1);
