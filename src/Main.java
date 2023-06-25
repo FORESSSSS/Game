@@ -22,7 +22,7 @@ public class Main {
             scanner = new Scanner(System.in);
             System.out.print("Куда Вы хотите пойти? " + "\n" +
                     "1. К торговцу" + "\n" +
-                    "2. В тёмный лес" + "\n" +
+                    "2. В битву" + "\n" +
                     "3. Посмотреть состояние героя" + "\n");
             if (player.getStatPoints() > 0) {
                 System.out.println("4. Распределить очки усиления");

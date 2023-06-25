@@ -27,11 +27,18 @@ public class Battle {
     }
 
     private void round(GameCharacter player1, GameCharacter player2) {
-        int strengthPlayer1 = player1.attack();
+        int hit = player1.attack();
         countMoves++;
         System.out.println("---Ход " + countMoves + " ---");
-        System.out.println(player1.getName() + " атакует с силой " + strengthPlayer1);
-        player2.setHealth(player2.getHealth() - strengthPlayer1);
+        if (hit == 0) {
+            System.out.println("ПРОМАХ!");
+        } else {
+            if(hit >= (player1.getStrength()*2)){
+                System.out.println("КРИТ!");
+            }
+            System.out.println(player1.getName() + " атакует с силой " + hit);
+            player2.setHealth(player2.getHealth() - hit);
+        }
         System.out.println(player2.getName() + ": здоровье " + player2.getHealth());
         try {
             Thread.sleep(1000);
@@ -55,8 +62,10 @@ public class Battle {
             player.setLevel(player.getLevel() + 1);
             player.setStatPoints(player.getStatPoints() + player.getLevel() * 2);
             player.setMaxHealth(player.getMaxHealth() + 20);
+            player.setHealth(player.getMaxHealth());
             System.out.println("------------------------------");
             System.out.printf("Вы получили %d-й уровень!\n", player.getLevel());
+            System.out.println("Здоровье восстановилось!");
         }
     }
 }

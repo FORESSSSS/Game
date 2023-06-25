@@ -74,8 +74,13 @@ public abstract class GameCharacter implements Fighter {
 
     @Override
     public int attack() {
-        if (dexterity * 3 > (int) (Math.random() * 100)) {
-            return strength + (int) (Math.random() * 10);
+        int random = (int) (Math.random() * 100);
+        if (dexterity * 3 > random) {
+            if (random >= 70 && random <= 77) {
+                return (getStrength() * 2) + (int) (Math.random() * 10);
+            } else {
+                return getStrength() + (int) (Math.random() * 10);
+            }
         } else {
             return 0;
         }
