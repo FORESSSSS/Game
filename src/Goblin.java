@@ -1,5 +1,6 @@
-public class Goblin extends Monster{
+public class Goblin extends Monster {
+    static Player player;
     public Goblin(String name) {
-        super(name, 100, 10, 25, 10, 20);
+        super(name, 100, 10, 25, 7, ((int) (Math.random() * 50)));
     }
 }
