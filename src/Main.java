@@ -20,7 +20,7 @@ public class Main {
     private static String printMenu() {
         while (true) {
             scanner = new Scanner(System.in);
-            System.out.print("Куда Вы хотите пойти?\n " +
+            System.out.print("Куда Вы хотите пойти?\n" +
                     "1. К торговцу\n" +
                     "2. В бой!\n" +
                     "3. Посмотреть состояние героя\n");
