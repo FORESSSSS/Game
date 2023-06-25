@@ -3,7 +3,7 @@ import java.util.Set;
 
 public class Player extends GameCharacter {
     private int level;
-    private int maxHealth;
+    private int maxHealth = 100;
     private int statPoints;
     private static Scanner scanner;
     private static String command;
