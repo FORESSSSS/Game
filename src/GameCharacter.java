@@ -83,6 +83,6 @@ public abstract class GameCharacter implements Fighter {
 
     @Override
     public String toString() {
-        return "здоровье = " + health;
+        return "здоровье: " + health;
     }
 }

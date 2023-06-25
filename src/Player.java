@@ -106,11 +106,11 @@ public class Player extends GameCharacter {
 
     @Override
     public String toString() {
-        return getName() + ", уровень = " + level +
-                ", здоровье = " + getHealth() +
-                ", сила = " + getStrength() +
-                ", ловкость = " + getDexterity() +
-                ", опыт = " + getExperience() +
-                ", золото = " + getGold();
+        return getName() + ", уровень: " + level +
+                ", здоровье: " + getHealth() + " из "+ getMaxHealth() +
+                ", сила: " + getStrength() +
+                ", ловкость: " + getDexterity() +
+                ", опыт: " + getExperience() +
+                ", золото: " + getGold();
     }
 }
