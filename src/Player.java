@@ -69,7 +69,7 @@ public class Player extends GameCharacter {
     private String printStatsMenu() {
         while (true) {
             scanner = new Scanner(System.in);
-            System.out.print("Вы можете распределить очки статистики на силу и ловкость" + "\n" +
+            System.out.print("Вы можете распределить очки усиления:" + "\n" +
                     "1. Увеличить силу" + "\n" +
                     "2. Увеличить ловкость" + "\n" +
                     "3. Вернуться в главное меню \n -> ");
@@ -83,15 +83,25 @@ public class Player extends GameCharacter {
 
     private int shareStatPoints(String nameStat) {
         scanner = new Scanner(System.in);
-        System.out.print("У Вас " + this.statPoints + " очков. Сколько добавить к " + nameStat + "? -> ");
+        System.out.print("У Вас " + this.statPoints + " очков усиления. Сколько добавить к " + nameStat + "? -> ");
         command = scanner.nextLine();
         try {
             if (Integer.parseInt(command) <= this.statPoints) {
                 return Integer.parseInt(command);
-            } else System.out.println("У Вас нет столько очков");
+            } else System.out.println("У Вас нет столько очков усиления");
         } catch (NumberFormatException e) {
             System.out.println("Что-то пошло не так");
         }
         return 0;
+    }
+
+    @Override
+    public String toString() {
+        return getName() + ", уровень=" + level +
+                ", здоровье=" + getHealth() +
+                ", сила=" + getStrength() +
+                ": ловкость=" + getDexterity() +
+                ", опыт=" + getExperience() +
+                ", золото=" + getGold();
     }
 }

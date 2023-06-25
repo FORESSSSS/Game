@@ -1,109 +1,104 @@
 import java.util.Scanner;
 import java.util.Set;
 
-public class Merchant {
+public class Seller {
     private int gold;
-    private int potionForHealth;
-    private Hero hero;
-    private static Scanner sc;
-    private static String choisMenu;
+    private int healthPotion;
+    private Player player;
+    private static Scanner scanner;
+    private static String command;
 
-    public Merchant(Hero hero) {
-        this.hero = hero;
+    public Seller(Player player) {
+        this.player = player;
         this.gold = 1000;
-        this.potionForHealth = 1000;
+        this.healthPotion = 1000;
     }
 
     public int getGold() {
         return gold;
     }
 
-    public int getPotionForHealth() {
-        return potionForHealth;
+    public int getHealthPotion() {
+        return healthPotion;
     }
 
     public void setGold(int gold) {
         this.gold = gold;
     }
 
-    public void setPotionForHealth(int potionForHealth) {
-        this.potionForHealth = potionForHealth;
+    public void setHealthPotion(int healthPotion) {
+        this.healthPotion = healthPotion;
     }
 
-    private static String menu() {
+    private static String printMenu() {
         while (true) {
-            sc = new Scanner(System.in);
-            System.out.print("Что вы хотите ? " + "\n" +
-                    "1. Купить зелье для здоровья" + "\n" +
-                    "2. Купить StartPoints" + "\n" +
+            scanner = new Scanner(System.in);
+            System.out.print("Что Вы хотите сделать? " + "\n" +
+                    "1. Купить зелье здоровья" + "\n" +
+                    "2. Купить зелье усиления" + "\n" +
                     "3. Покинуть торговца" + "\n" +
                     "-> ");
             Set<String> set = Set.of("1", "2", "3");
-            choisMenu = sc.next();
-            if (set.contains(choisMenu)) {
-                return choisMenu;
+            command = scanner.next();
+            if (set.contains(command)) {
+                return command;
             } else System.out.println("Вы не выбрали пункт меню. Попробуйте еще раз");
         }
     }
 
     public void sell() {
         while (true) {
-            choisMenu = menu();
-            switch (choisMenu) {
+            command = printMenu();
+            switch (command) {
                 case "1": {
-                    System.out.println(hero.getName() + "\n" +
-                            " здоровье= " + hero.getHealth() +
-                            " золото= " + hero.getGold());
-                    System.out.print("1 бутылек зелья стоит 5 золотых и увеличивает здоровье на 10hp \n" +
-                            "Введите кол-во бутыльков -> ");
+                    System.out.println(player.getName() + "\n" +
+                            "здоровье = " + player.getHealth() +
+                            "золото = " + player.getGold());
+                    System.out.print("1 зелье стоит 5 золотых и увеличивает здоровье на 10\n" +
+                            "Введите нужное количество -> ");
                     try {
-                        int quantity = sc.nextInt();
-                        if (quantity * 5 <= hero.getGold()) {
-                            hero.setGold(hero.getGold() - quantity * 5);
-                            hero.setHealth(hero.getHealth() + quantity * 10);
-                            System.out.println(hero.getName() + "\n" +
-                                    " здоровье= " + hero.getHealth() +
-                                    " золото= " + hero.getGold());
+                        int quantity = scanner.nextInt();
+                        if (quantity * 5 <= player.getGold()) {
+                            player.setGold(player.getGold() - quantity * 5);
+                            player.setHealth(player.getHealth() + quantity * 10);
+                            System.out.println(player.getName() + "\n" +
+                                    "здоровье = " + player.getHealth() +
+                                    "золото = " + player.getGold());
                         } else {
-                            System.out.println("У вас недостаточно золота");
+                            System.out.println("У Вас недостаточно золота");
                         }
                     } catch (Exception e) {
-                        System.out.println("Вы ввели что-то не то ");
+                        System.out.println("Вы ввели что-то не то!");
                     }
                     break;
                 }
-
                 case "2": {
-                    System.out.println(hero.getName() + "\n" +
-                            " StartPoints= " + hero.getStatPoints() +
-                            " золото= " + hero.getGold());
-                    System.out.println("1 StartPoints стоит 5 золотых. Введите кол-во StartPoints -> ");
-
+                    System.out.println(player.getName() + "\n" +
+                            "очки усиления = " + player.getStatPoints() +
+                            "золото = " + player.getGold());
+                    System.out.println("1 зелье усиления стоит 5 золотых\n" +
+                            "Введите нужное количество -> ");
                     try {
-                        int quantity = sc.nextInt();
-                        if (quantity * 5 <= hero.getGold()) {
-                            hero.setGold(hero.getGold() - quantity * 5);
-                            hero.setStatPoints(hero.getStatPoints() + quantity);
-                            System.out.println(hero.getName() + "\n" +
-                                    " StatPoints= " + hero.getStatPoints() +
-                                    " золото= " + hero.getGold());
+                        int quantity = scanner.nextInt();
+                        if (quantity * 5 <= player.getGold()) {
+                            player.setGold(player.getGold() - quantity * 5);
+                            player.setStatPoints(player.getStatPoints() + quantity);
+                            System.out.println(player.getName() + "\n" +
+                                    "очки усиления = " + player.getStatPoints() +
+                                    "золото = " + player.getGold());
                         } else {
-                            System.out.println("У вас недостаточно золота");
+                            System.out.println("У Вас недостаточно золота");
                         }
                     } catch (Exception e) {
-                        System.out.println("Вы ввели что-то не то ");
+                        System.out.println("Вы ввели что-то не то!");
                     }
                     break;
                 }
-
                 case "3": {
-                    System.out.println("Пока, пока");
+                    System.out.println("Досвидания!");
                     return;
                 }
             }
         }
-
-
     }
-
 }
