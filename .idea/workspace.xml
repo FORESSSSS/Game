@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21a6a2a8-9bcb-44b1-b66f-15679680b9ee" name="Changes" comment="Персонажи готовы">
+    <list default="true" id="21a6a2a8-9bcb-44b1-b66f-15679680b9ee" name="Changes" comment="Битва готова">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Battle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Goblin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Goblin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Seller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Seller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Skeleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Skeleton.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +83,21 @@
       <option name="project" value="LOCAL" />
       <updated>1687679161364</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Торговец готов">
+      <created>1687680549492</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1687680549492</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Битва готова">
+      <created>1687681710685</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1687681710685</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -95,6 +114,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Старт" />
     <MESSAGE value="Персонажи готовы" />
-    <option name="LAST_COMMIT_MESSAGE" value="Персонажи готовы" />
+    <MESSAGE value="Торговец готов" />
+    <MESSAGE value="Битва готова" />
+    <option name="LAST_COMMIT_MESSAGE" value="Битва готова" />
   </component>
 </project>

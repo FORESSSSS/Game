@@ -52,7 +52,7 @@ public class Seller {
             switch (command) {
                 case "1": {
                     System.out.println(player.getName() + "\n" +
-                            "здоровье = " + player.getHealth() +
+                            "здоровье = " + player.getHealth() +" "+
                             "золото = " + player.getGold());
                     System.out.print("1 зелье стоит 5 золотых и увеличивает здоровье на 10\n" +
                             "Введите нужное количество -> ");
@@ -62,7 +62,7 @@ public class Seller {
                             player.setGold(player.getGold() - quantity * 5);
                             player.setHealth(player.getHealth() + quantity * 10);
                             System.out.println(player.getName() + "\n" +
-                                    "здоровье = " + player.getHealth() +
+                                    "здоровье = " + player.getHealth() +" "+
                                     "золото = " + player.getGold());
                         } else {
                             System.out.println("У Вас недостаточно золота");
@@ -74,7 +74,7 @@ public class Seller {
                 }
                 case "2": {
                     System.out.println(player.getName() + "\n" +
-                            "очки усиления = " + player.getStatPoints() +
+                            "очки усиления = " + player.getStatPoints() +" "+
                             "золото = " + player.getGold());
                     System.out.println("1 зелье усиления стоит 5 золотых\n" +
                             "Введите нужное количество -> ");
@@ -84,7 +84,7 @@ public class Seller {
                             player.setGold(player.getGold() - quantity * 5);
                             player.setStatPoints(player.getStatPoints() + quantity);
                             System.out.println(player.getName() + "\n" +
-                                    "очки усиления = " + player.getStatPoints() +
+                                    "очки усиления = " + player.getStatPoints() +" "+
                                     "золото = " + player.getGold());
                         } else {
                             System.out.println("У Вас недостаточно золота");
@@ -95,7 +95,7 @@ public class Seller {
                     break;
                 }
                 case "3": {
-                    System.out.println("Досвидания!");
+                    System.out.println("Досвидания!\n");
                     return;
                 }
             }

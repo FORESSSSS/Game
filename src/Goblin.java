@@ -1,5 +1,5 @@
 public class Goblin extends GameCharacter{
     public Goblin(String name) {
-        super(name, 100, 10, 4, 2, 100);
+        super(name, 100, 10, 10, 10, 100);
     }
 }

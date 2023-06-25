@@ -38,7 +38,7 @@ public class Battle {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        if (player2.getHealth() == 0) {
+        if (player2.getHealth() <= 0) {
             if (player1 instanceof Player) updatePlayer((Player) player1, player2);
             System.out.println("----------------------------- \n" +
                     "Победил " + player1.getName());

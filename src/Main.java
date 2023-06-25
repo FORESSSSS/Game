@@ -12,7 +12,7 @@ public class Main {
         scanner = new Scanner(System.in);
         System.out.print("Введите имя героя: ");
         String heroName = scanner.nextLine();
-        player = new Player(heroName, 100, 10, 5, 0, 100);
+        player = new Player(heroName, 100, 20, 15, 0, 100);
         System.out.println(player + "\n ---------------------- \n");
         statGame();
     }
@@ -45,7 +45,6 @@ public class Main {
                 case "1": {
                     seller = new Seller(player);
                     seller.sell();
-                    System.out.println("Торговец еще не вышел на работу");
                     break;
                 }
                 case "2": {
