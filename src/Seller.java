@@ -48,8 +48,14 @@ public class Seller {
                             "Введите нужное количество -> ");
                     try {
                         int quantity = scanner.nextInt();
-                        if (player.getHealth() + (quantity * 10) >= player.getMaxHealth()) {
-                            System.out.println("У Вас максимальный уровень здоровья!\n");
+                        if (player.getHealth() > player.getMaxHealth() - 10 && player.getHealth() < player.getMaxHealth() + 10) {
+                            player.setHealth(player.getMaxHealth());
+                            player.setGold(player.getGold() - getPriceHealthPotion());
+                            System.out.println(player.getName() + "\n" +
+                                    "здоровье: " + player.getHealth() + " из " + player.getMaxHealth() +
+                                    " золото: " + player.getGold());
+                        } else if (player.getHealth() + (quantity * 10) >= player.getMaxHealth()) {
+                            System.out.println("Слишком большое количество!\n");
                         } else {
                             if (quantity * getPriceHealthPotion() <= player.getGold()) {
                                 player.setGold(player.getGold() - quantity * getPriceHealthPotion());
