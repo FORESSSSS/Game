@@ -9,7 +9,7 @@ public class Battle {
     }
 
     public void startBattle() throws InterruptedException {
-        System.out.printf("Битва между %s и %s началась! \n", player.getName(), monster.getName());
+        System.out.printf("Битва между %s и %s началась!\n", player.getName(), monster.getName());
         countMoves = 0;
         Runnable runnable;
         if ((int) (Math.random() * 2) == 1) {
@@ -29,14 +29,14 @@ public class Battle {
     private void round(GameCharacter player1, GameCharacter player2) {
         int hit = player1.attack();
         countMoves++;
-        System.out.println("---Ход " + countMoves + " ---");
+        System.out.println("--- Ход " + countMoves + " ---");
         if (hit == 0) {
             System.out.println("ПРОМАХ!");
         } else {
-            if(hit >= (player1.getStrength()*2)){
+            if (hit >= (player1.getStrength() * 2)) {
                 System.out.println("КРИТ!");
             }
-            System.out.println(player1.getName() + " атакует с силой " + hit);
+            System.out.println(player1.getName() + " наносит удар " + hit);
             player2.setHealth(player2.getHealth() - hit);
         }
         System.out.println(player2.getName() + ": здоровье " + player2.getHealth());
@@ -66,6 +66,9 @@ public class Battle {
             System.out.println("------------------------------");
             System.out.printf("Вы получили %d-й уровень!\n", player.getLevel());
             System.out.println("Здоровье восстановилось!");
+        }
+        if (player.getLevel() == 5) {
+            System.out.println("Пришло время сразиться с драконом!");
         }
     }
 }

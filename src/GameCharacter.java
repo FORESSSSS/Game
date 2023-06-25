@@ -6,15 +6,6 @@ public abstract class GameCharacter implements Fighter {
     private int experience;
     private int gold;
 
-    public GameCharacter(String name) {
-        this.name = name;
-        this.health = 100;
-        this.strength = 10;
-        this.dexterity = 5;
-        this.experience = 1;
-        this.gold = 100;
-    }
-
     public GameCharacter(String name, int health, int strength, int dexterity, int experience, int gold) {
         this.name = name;
         this.health = health;
@@ -26,10 +17,6 @@ public abstract class GameCharacter implements Fighter {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getHealth() {

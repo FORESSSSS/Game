@@ -3,20 +3,15 @@ import java.util.Set;
 
 public class Player extends GameCharacter {
     private int level;
-    private int maxHealth = 100;
+    private int maxHealth;
     private int statPoints;
     private static Scanner scanner;
     private static String command;
 
-    public Player(String name) {
-        super(name);
-        this.level = 1;
-        this.statPoints = 3;
-    }
-
     public Player(String name, int health, int strength, int dexterity, int experience, int gold) {
         super(name, health, strength, dexterity, experience, gold);
         this.level = 1;
+        this.maxHealth = 100;
         this.statPoints = 3;
     }
 
@@ -78,10 +73,10 @@ public class Player extends GameCharacter {
     private String printStatsMenu() {
         while (true) {
             scanner = new Scanner(System.in);
-            System.out.print("Вы можете распределить очки усиления:" + "\n" +
-                    "1. Увеличить силу" + "\n" +
-                    "2. Увеличить ловкость" + "\n" +
-                    "3. Вернуться в главное меню \n -> ");
+            System.out.print("Вы можете распределить очки усиления:\n" +
+                    "1. Увеличить силу\n" +
+                    "2. Увеличить ловкость\n" +
+                    "3. Вернуться в главное меню\n -> ");
             Set<String> set = Set.of("1", "2", "3");
             command = scanner.next();
             if (set.contains(command)) {
@@ -107,7 +102,7 @@ public class Player extends GameCharacter {
     @Override
     public String toString() {
         return getName() + ", уровень: " + level +
-                ", здоровье: " + getHealth() + " из "+ getMaxHealth() +
+                ", здоровье: " + getHealth() + " из " + getMaxHealth() +
                 ", сила: " + getStrength() +
                 ", ловкость: " + getDexterity() +
                 ", опыт: " + getExperience() +

@@ -13,21 +13,21 @@ public class Main {
         System.out.print("Введите имя героя: ");
         String heroName = scanner.nextLine();
         player = new Player(heroName, 100, 20, 20, 0, 100);
-        System.out.println(player + "\n ---------------------- \n");
+        System.out.println(player + "\n ----------------------\n");
         statGame();
     }
 
     private static String printMenu() {
         while (true) {
             scanner = new Scanner(System.in);
-            System.out.print("Куда Вы хотите пойти? " + "\n" +
-                    "1. К торговцу" + "\n" +
-                    "2. В битву" + "\n" +
-                    "3. Посмотреть состояние героя" + "\n");
+            System.out.print("Куда Вы хотите пойти?\n " +
+                    "1. К торговцу\n" +
+                    "2. В бой!\n" +
+                    "3. Посмотреть состояние героя\n");
             if (player.getStatPoints() > 0) {
                 System.out.println("4. Распределить очки усиления");
             }
-            System.out.print("Для выхода нажмите Q" + "\n" + "-> ");
+            System.out.print("Для выхода нажмите Q\n" + "-> ");
             Set<String> set = Set.of("1", "2", "3", "4", "Q");
             command = scanner.next();
             if (set.contains(command)) {
@@ -39,6 +39,7 @@ public class Main {
     }
 
     private static void statGame() throws InterruptedException {
+        Battle battle;
         while (true) {
             command = printMenu();
             switch (command) {
@@ -48,17 +49,32 @@ public class Main {
                     break;
                 }
                 case "2": {
-                    if ((int) (Math.random() * 2) == 1) {
-                        monster = new Goblin("Гоблин");
-                    } else monster = new Skeleton("Скелет");
-                    Battle battle = new Battle(player, monster);
-                    battle.startBattle();
-                    if (player.getHealth() <= 0) {
-                        System.out.println("Вы потерпели поражение!");
-                        System.out.println("ИГРА ОКОНЧЕНА");
-                        System.exit(1);
+                    if (player.getLevel() >= 5) {
+                        monster = Dragon.getInstance();
+                        battle = new Battle(player, monster);
+                        battle.startBattle();
+                        if (monster.getHealth() <= 0) {
+                            System.out.println("Вы победили дракона!");
+                            System.out.println("ИГРА ПРОЙДЕНА");
+                            System.exit(1);
+                        } else {
+                            System.out.println("Вы потерпели поражение!");
+                            System.out.println("ИГРА ОКОНЧЕНА");
+                            System.exit(1);
+                        }
+                    } else {
+                        if ((int) (Math.random() * 2) == 1) {
+                            monster = new Goblin("Гоблин");
+                        } else monster = new Skeleton("Скелет");
+                        battle = new Battle(player, monster);
+                        battle.startBattle();
+                        if (player.getHealth() <= 0) {
+                            System.out.println("Вы потерпели поражение!");
+                            System.out.println("ИГРА ОКОНЧЕНА");
+                            System.exit(1);
+                        }
+                        break;
                     }
-                    break;
                 }
                 case "3": {
                     System.out.println(player);
