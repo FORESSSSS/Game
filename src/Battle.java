@@ -61,7 +61,7 @@ public class Battle {
         if (player.getExperience() >= Math.pow(player.getLevel(), 2) * 10) {
             player.setLevel(player.getLevel() + 1);
             player.setStatPoints(player.getStatPoints() + player.getLevel() * 2);
-            player.setMaxHealth(player.getMaxHealth() + 20);
+            player.setMaxHealth(player.getMaxHealth() + 30);
             player.setHealth(player.getMaxHealth());
             System.out.println("------------------------------");
             System.out.printf("Вы получили %d-й уровень!\n", player.getLevel());

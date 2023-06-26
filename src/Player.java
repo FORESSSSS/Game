@@ -12,7 +12,7 @@ public class Player extends GameCharacter {
         super(name, health, strength, dexterity, experience, gold);
         this.level = 1;
         this.maxHealth = 100;
-        this.statPoints = 3;
+        this.statPoints = 5;
     }
 
     public int getLevel() {
